@@ -6,6 +6,7 @@ body{
     font-size: 13px;
     margin-left: 10px;
     margin-right: 10px;
+    
 }
 div{
     padding-top: 10px;
@@ -19,4 +20,11 @@ button{
 hr{
     border-color: #800000;
     border-width: 2px;
+}
+.titre_question{
+    text-align: center;
+    font-size: xx-large;
+}
+.titre{
+    text-shadow: 0.1em 0.1em 0.2em #570909;
 }

@@ -15,9 +15,9 @@ var truc4
 var truc5
 
 signButton.addEventListener("click", () => {
-    section=document.querySelector('section')
-    section.remove
-    document.getElementsByTagName(section).innerHTML='<section><div></div><div></div></section>'
+    let section=document.querySelector('section')
+    section.remove()
+    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question">Questionnaire</h2></div><div class="question"><p></p></div><div class="reponse"><p></p><p></p><p></p></div></section>');
     point = 0
     questions = [
         "Quel est le mode de vie des nains selon la chanson ?",
