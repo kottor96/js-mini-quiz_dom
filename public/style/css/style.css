@@ -1,0 +1,22 @@
+body{ 
+    color: rgb(144, 0, 0); 
+    background-color: rgb(231, 231, 210) ;
+    font-family: Arial, Helvetica, Sans-Serif ;
+    font-weight: none ;
+    font-size: 13px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+button{
+    color: rgb(128, 0, 0);
+    background-color: rgb(223, 202, 161);
+}
+hr{
+    border-color: #800000;
+    border-width: 2px;
+}
