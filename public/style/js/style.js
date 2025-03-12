@@ -15,7 +15,9 @@ var truc4
 var truc5
 
 signButton.addEventListener("click", () => {
-    document.querySelector('body').
+    section=document.querySelector('section')
+    section.remove
+    document.getElementsByTagName(section).innerHTML='<section><div></div><div></div></section>'
     point = 0
     questions = [
         "Quel est le mode de vie des nains selon la chanson ?",
