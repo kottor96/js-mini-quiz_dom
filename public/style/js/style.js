@@ -1,23 +1,22 @@
-
 const signButton = document.querySelector("#start");
 const log = document.querySelector("#log");
-var reponse_A
-var questions
-var reponse_B
-var reponse_C
-var bonnes_reponses
-var point
-var reponse_U
-var truc1
-var truc2
-var truc3
-var truc4
-var truc5
+var reponse_A;
+var questions;
+var reponse_B;
+var reponse_C;
+var bonnes_reponses;
+var point;
+var reponse_U;
+var truc1;
+var truc2;
+var truc3;
+var truc4;
+var truc5;
 
 signButton.addEventListener("click", () => {
     let section=document.querySelector('section')
     section.remove()
-    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question">Questionnaire</h2></div><div class="question"><p></p></div><div class="reponse"><p></p><p></p><p></p></div></section>');
+    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div><div class="question"><h4 class="titre_special"></h4></div><div class="reponse"><p></p><p></p><p></p></div></section>');
     point = 0
     questions = [
         "Quel est le mode de vie des nains selon la chanson ?",
@@ -132,7 +131,8 @@ signButton.addEventListener("click", () => {
     nbr=questions.length
     for (let index = 0; index < nbr; index++) {
         let i=Math.floor(Math.random() * questions.length);
-        console.log((index+1)+"> "+questions[i]);
+        //console.log((index+1)+"> "+questions[i]);
+        document.querySelector('h4').innerText=(questions[i]+" :")
         console.log(">A  "+reponse_A[i]);
         console.log(">B  "+reponse_B[i]);
         console.log(">C  "+reponse_C[i]);

@@ -24,7 +24,12 @@ hr{
 .titre_question{
     text-align: center;
     font-size: xx-large;
+    
 }
 .titre{
     text-shadow: 0.1em 0.1em 0.2em #570909;
+}
+.titre_special{
+    text-align:center;
+    font-size: x-large;
 }
