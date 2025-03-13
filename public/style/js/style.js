@@ -9,10 +9,11 @@ var point=0;
 var reponse_U;
 var reponse_D;
 var btn
-i=Math.floor(Math.random() * 20);
+
 signButton.addEventListener("click", () => {
     let section=document.querySelector('section')
     section.remove()
+    i=Math.floor(Math.random() * 20);
     document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div><div class="question"><h4 class="titre_special"></h4></div><div class="reponse"></div></section><section id="s2"><div><p></p><p></p></div></section>');
     questions = [
         "Quel est le mode de vie des nains selon la chanson ?",
@@ -157,81 +158,182 @@ signButton.addEventListener("click", () => {
     let button1=document.querySelector('#a')
     let button2=document.querySelector('#b')
     let button3=document.querySelector('#c')
-    btn=document.createElement('button')
-    btn.textcontent="continuer"
+    var btn=document.createElement('button')
+    btn.textContent="continuer"
+    var ok=document.querySelector('#s2')
+    var check=ok.querySelectorAll('p')[1]
     button1.addEventListener("click", ()=>{
-        if (bonnes_reponses[i]==reponse_A ) {
+        if (bonnes_reponses[i]==reponse_A[i]) {
             // console.log("Bonne réponse ! +1 point")
             point++
-            document.querySelector('.s2 p').innerText("Bonne réponse ! +1 point")
-            questions.splice(i,1)
-            bonnes_reponses.splice(i,1)
-            reponse_A.splice(i,1)
-            reponse_B.splice(i,1)
-            reponse_C.splice(i,1)
-            i=Math.floor(Math.random() * nbr);
-            btn.c
+            document.querySelector("section").querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            btn=document.createElement('button')
+            btn.textContent="continuer"
+            console.log('ok'+document.querySelector('.s2 p'));
+            document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
+            check.appendChild(btn)
         }
         else{
             // console.log("Mauvaise réponse !");
-            document.querySelector('.s2 p').innerText("Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses)
-            questions.splice(i,1)
-            bonnes_reponses.splice(i,1)
-            reponse_A.splice(i,1)
-            reponse_B.splice(i,1)
-            reponse_C.splice(i,1)
-            i=Math.floor(Math.random() * nbr);
+            console.log('pas ok');
+            document.querySelector("section").querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            btn=document.createElement('button')
+            btn.textContent="continuer"
+            document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
+            check.appendChild(btn)
         }
     })
     button2.addEventListener("click", ()=>{
-        reponse_D=reponse_B[i]
-        if (bonnes_reponses[i]==reponse_B) {
+        if (bonnes_reponses[i]==reponse_B[i]) {
             // console.log("Bonne réponse ! +1 point")
             point++
-            document.querySelector('.s2 p').innerText("Bonne réponse ! +1 point")
-            questions.splice(i,1)
-            bonnes_reponses.splice(i,1)
-            reponse_A.splice(i,1)
-            reponse_B.splice(i,1)
-            reponse_C.splice(i,1)
-            i=Math.floor(Math.random() * nbr);
-            document.querySelectorAll('.s2 p')[1].innerHTML("boutton")
+            document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
+            check.appendChild(btn)
         }
         else{
             // console.log("Mauvaise réponse !");
-            document.querySelector('.s2 p').innerText("Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses)
-            questions.splice(i,1)
-            bonnes_reponses.splice(i,1)
-            reponse_A.splice(i,1)
-            reponse_B.splice(i,1)
-            reponse_C.splice(i,1)
-            i=Math.floor(Math.random() * nbr);
+            document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
+            check.appendChild(btn)
         }
     })
     button3.addEventListener("click", ()=>{
-        reponse_D=reponse_C[i]
-        if (bonnes_reponses[i]==reponse_C) {
+        if (bonnes_reponses[i]==reponse_C[i]) {
             // console.log("Bonne réponse ! +1 point")
             point++
-            document.querySelector('.s2 p').innerText("Bonne réponse ! +1 point")
-            questions.splice(i,1)
-            bonnes_reponses.splice(i,1)
-            reponse_A.splice(i,1)
-            reponse_B.splice(i,1)
-            reponse_C.splice(i,1)
-            i=Math.floor(Math.random() * nbr);
+            document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
+            check.appendChild(btn)
         }
         else{
             // console.log("Mauvaise réponse !");
-            document.querySelector('.s2 p').innerText("Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses)
-            questions.splice(i,1)
-            bonnes_reponses.splice(i,1)
-            reponse_A.splice(i,1)
-            reponse_B.splice(i,1)
-            reponse_C.splice(i,1)
-            i=Math.floor(Math.random() * nbr);
+            document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
+            check.appendChild(btn)
+        }
+
+    })
+    // questions.splice(i,1)
+    // bonnes_reponses.splice(i,1)
+    // reponse_A.splice(i,1)
+    // reponse_B.splice(i,1)
+    // reponse_C.splice(i,1)
+    // i=Math.floor(Math.random() * nbr);
+    btn.addEventListener("click", () => {
+    questions.splice(i,1)
+    bonnes_reponses.splice(i,1)
+    reponse_A.splice(i,1)
+    reponse_B.splice(i,1)
+    reponse_C.splice(i,1)
+    let section=document.querySelector('section')
+    section.remove()
+    i=Math.floor(Math.random() * nbr);
+    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div><div class="question"><h4 class="titre_special"></h4></div><div class="reponse"></div></section><section id="s2"><div><p></p><p></p></div></section>');
+    nbr=questions.length
+    //console.log((index+1)+"> "+questions[i]);
+    document.querySelector('h4').innerText=(questions[i]+" :")
+    // console.log(">A  "+reponse_A[i]);
+    // console.log(">B  "+reponse_B[i]);
+    // console.log(">C  "+reponse_C[i]);
+    let afficheReponse=document.querySelector('.reponse')
+    afficheReponse.innerHTML=("<button id='a'>A) "+reponse_A[i]+"</button><button id='b'>B) "+reponse_B[i]+"</button><button id='c'>C) "+reponse_C[i]+"</button>")
+    // while (true){
+    //     // reponse_U=prompt("Veuillez choisir la reponse A, B ou C :");
+    //     if (reponse_U=="k"){
+    //         console.log(bonnes_reponses[i])
+    //     }
+    //     else if (reponse_U.toLocaleUpperCase()=="A") {
+    //         reponse_D=reponse_A[i]
+    //         break
+    //     }
+    //     else if (reponse_U.toLocaleUpperCase()=="B") {
+    //         reponse_D=reponse_B[i]
+    //         break
+    //     }
+    //     else if (reponse_U.toLocaleUpperCase()=="C") {
+    //         reponse_D=reponse_C[i]
+    //         break
+    //     }
+    //     else{
+    //         console.log(reponse_U)
+    //         console.log("veuiller donnez une reponse valide");
+    //     }
+    // }
+    let button1=document.querySelector('#a')
+    let button2=document.querySelector('#b')
+    let button3=document.querySelector('#c')
+
+    let ok=document.querySelector('#s2')
+    var check=ok.querySelectorAll('p')[1]
+    button1.addEventListener("click", ()=>{
+        if (bonnes_reponses[i]==reponse_A[i]) {
+            // console.log("Bonne réponse ! +1 point")
+            ok.querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            btn=document.createElement('button')
+            btn.textContent="continuer"
+            point++
+            document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
+            check.appendChild(btn)
+        }
+        else{
+            // console.log("Mauvaise réponse !");
+            ok.querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            btn=document.createElement('button')
+            btn.textContent="continuer"
+            document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
+            check.appendChild(btn)
         }
     })
+    button2.addEventListener("click", ()=>{
+        if (bonnes_reponses[i]==reponse_B[i]) {
+            // console.log("Bonne réponse ! +1 point")
+            ok.querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            btn=document.createElement('button')
+            btn.textContent="continuer"
+            point++
+            document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
+            check.appendChild(btn)
+        }
+        else{
+            // console.log("Mauvaise réponse !");
+            ok.querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            btn=document.createElement('button')
+            btn.textContent="continuer"
+            document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
+            check.appendChild(btn)
+        }
+    })
+    button3.addEventListener("click", ()=>{
+        if (bonnes_reponses[i]==reponse_C[i]) {
+            // console.log("Bonne réponse ! +1 point")
+            ok.querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            point++
+            document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
+            check.appendChild(btn)
+        }
+        else{
+            // console.log("Mauvaise réponse !");
+            ok.querySelectorAll('button').forEach(element => {
+                element.remove
+            });
+            document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
+            btn=document.createElement('button')
+            btn.textContent="continuer"
+            check.appendChild(btn)
+        }
+    })
+    
     
     if (point<10) {
         console.log("tu as perdu");
@@ -241,5 +343,9 @@ signButton.addEventListener("click", () => {
         console.log("tu as gagné tu es passer maitre");
         console.log('tu as '+point+' point')
     }
+
+});
+    
+    
 
 });
