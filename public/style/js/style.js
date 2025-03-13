@@ -17,38 +17,12 @@ var i=1
 //     nbr=questions.length
 
     
-//     let button1=document.querySelector('#a')
-//     let button2=document.querySelector('#b')
-//     let button3=document.querySelector('#c')
+    
 //     var btn=document.createElement('button')
 //     btn.textContent="continuer"
 //     var ok=document.querySelector('#s2')
 //     var check=ok.querySelectorAll('p')[1]
-//     button1.addEventListener("click", ()=>{
-//         if (bonnes_reponses[i]==reponse_A[i]) {
-//             // console.log("Bonne réponse ! +1 point")
-//             point++
-//             document.querySelector("section").querySelectorAll('button').forEach(element => {
-//                 element.remove
-//             });
-//             btn=document.createElement('button')
-//             btn.textContent="continuer"
-//             console.log('ok'+document.querySelector('.s2 p'));
-//             document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
-//             check.appendChild(btn)
-//         }
-//         else{
-//             // console.log("Mauvaise réponse !");
-//             console.log('pas ok');
-//             document.querySelector("section").querySelectorAll('button').forEach(element => {
-//                 element.remove
-//             });
-//             btn=document.createElement('button')
-//             btn.textContent="continuer"
-//             document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
-//             check.appendChild(btn)
-//         }
-//     })
+    
 //     button2.addEventListener("click", ()=>{
 //         if (bonnes_reponses[i]==reponse_B[i]) {
 //             // console.log("Bonne réponse ! +1 point")
@@ -210,7 +184,9 @@ var i=1
     
     
 
-
+// let button1=document.querySelector('#a')
+//     let button2=document.querySelector('#b')
+//     let button3=document.querySelector('#c')
 signButton.addEventListener("click", () => {
     if (lancer===false) {
         lancer=true
@@ -331,4 +307,32 @@ signButton.addEventListener("click", () => {
         let afficheReponse=document.querySelector('.reponse')
         afficheReponse.innerHTML=("<button id='a'>A) "+reponse_A[i]+"</button><button id='b'>B) "+reponse_B[i]+"</button><button id='c'>C) "+reponse_C[i]+"</button>")
     }
+    button1.addEventListener("click", (event)=>{
+        if(lancer===true){
+            
+        }
+        // if (bonnes_reponses[i]==reponse_A[i]) {
+        //     // console.log("Bonne réponse ! +1 point")
+        //     point++
+        //     document.querySelector("section").querySelectorAll('button').forEach(element => {
+        //         element.remove
+        //     });
+        //     btn=document.createElement('button')
+        //     btn.textContent="continuer"
+        //     console.log('ok'+document.querySelector('.s2 p'));
+        //     document.querySelector('#s2 p').innerText="Bonne réponse ! +1 point"
+        //     check.appendChild(btn)
+        // }
+        // else {
+        //     // console.log("Mauvaise réponse !");
+        //     console.log('pas ok');
+        //     document.querySelector("section").querySelectorAll('button').forEach(element => {
+        //         element.remove
+        //     });
+        //     btn=document.createElement('button')
+        //     btn.textContent="continuer"
+        //     document.querySelector('#s2 p').innerText="Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses[i]
+        //     check.appendChild(btn)
+        // }
+    })
 });
