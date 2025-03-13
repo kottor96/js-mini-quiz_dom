@@ -30,6 +30,11 @@ hr{
     text-shadow: 0.1em 0.1em 0.2em #570909;
 }
 .titre_special{
-    text-align:center;
+    text-align: center;
     font-size: x-large;
+}
+.reponse{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

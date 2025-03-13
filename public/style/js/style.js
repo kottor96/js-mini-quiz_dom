@@ -5,19 +5,15 @@ var questions;
 var reponse_B;
 var reponse_C;
 var bonnes_reponses;
-var point;
+var point=0;
 var reponse_U;
-var truc1;
-var truc2;
-var truc3;
-var truc4;
-var truc5;
-
+var reponse_D;
+var btn
+i=Math.floor(Math.random() * 20);
 signButton.addEventListener("click", () => {
     let section=document.querySelector('section')
     section.remove()
-    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div><div class="question"><h4 class="titre_special"></h4></div><div class="reponse"><p></p><p></p><p></p></div></section>');
-    point = 0
+    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div><div class="question"><h4 class="titre_special"></h4></div><div class="reponse"></div></section><section id="s2"><div><p></p><p></p></div></section>');
     questions = [
         "Quel est le mode de vie des nains selon la chanson ?",
         "Comment les nains perçoivent-ils les habitants de la surface ?",
@@ -129,48 +125,114 @@ signButton.addEventListener("click", () => {
         "Ne jamais quitter sa montagne"
     ]
     nbr=questions.length
-    for (let index = 0; index < nbr; index++) {
-        let i=Math.floor(Math.random() * questions.length);
-        //console.log((index+1)+"> "+questions[i]);
-        document.querySelector('h4').innerText=(questions[i]+" :")
-        console.log(">A  "+reponse_A[i]);
-        console.log(">B  "+reponse_B[i]);
-        console.log(">C  "+reponse_C[i]);
-        while (true){
-            // reponse_U=prompt("Veuillez choisir la reponse A, B ou C :");
-            if (reponse_U=="k"){
-                console.log(bonnes_reponses[i])
-            }
-            else if (reponse_U.toLocaleUpperCase()=="A") {
-                reponse_D=reponse_A[i]
-                break
-            }
-            else if (reponse_U.toLocaleUpperCase()=="B") {
-                reponse_D=reponse_B[i]
-                break
-            }
-            else if (reponse_U.toLocaleUpperCase()=="C") {
-                reponse_D=reponse_C[i]
-                break
-            }
-            else{
-                console.log(reponse_U)
-                console.log("veuiller donnez une reponse valide");
-            }
-        }
-        if (bonnes_reponses[i]==reponse_D) {
-            console.log("Bonne réponse ! +1 point")
+    //console.log((index+1)+"> "+questions[i]);
+    document.querySelector('h4').innerText=(questions[i]+" :")
+    // console.log(">A  "+reponse_A[i]);
+    // console.log(">B  "+reponse_B[i]);
+    // console.log(">C  "+reponse_C[i]);
+    let afficheReponse=document.querySelector('.reponse')
+    afficheReponse.innerHTML=("<button id='a'>A) "+reponse_A[i]+"</button><button id='b'>B) "+reponse_B[i]+"</button><button id='c'>C) "+reponse_C[i]+"</button>")
+    // while (true){
+    //     // reponse_U=prompt("Veuillez choisir la reponse A, B ou C :");
+    //     if (reponse_U=="k"){
+    //         console.log(bonnes_reponses[i])
+    //     }
+    //     else if (reponse_U.toLocaleUpperCase()=="A") {
+    //         reponse_D=reponse_A[i]
+    //         break
+    //     }
+    //     else if (reponse_U.toLocaleUpperCase()=="B") {
+    //         reponse_D=reponse_B[i]
+    //         break
+    //     }
+    //     else if (reponse_U.toLocaleUpperCase()=="C") {
+    //         reponse_D=reponse_C[i]
+    //         break
+    //     }
+    //     else{
+    //         console.log(reponse_U)
+    //         console.log("veuiller donnez une reponse valide");
+    //     }
+    // }
+    let button1=document.querySelector('#a')
+    let button2=document.querySelector('#b')
+    let button3=document.querySelector('#c')
+    btn=document.createElement('button')
+    btn.textcontent="continuer"
+    button1.addEventListener("click", ()=>{
+        if (bonnes_reponses[i]==reponse_A ) {
+            // console.log("Bonne réponse ! +1 point")
             point++
+            document.querySelector('.s2 p').innerText("Bonne réponse ! +1 point")
+            questions.splice(i,1)
+            bonnes_reponses.splice(i,1)
+            reponse_A.splice(i,1)
+            reponse_B.splice(i,1)
+            reponse_C.splice(i,1)
+            i=Math.floor(Math.random() * nbr);
+            btn.c
         }
-        else {
-            console.log("Mauvaise réponse !");   
+        else{
+            // console.log("Mauvaise réponse !");
+            document.querySelector('.s2 p').innerText("Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses)
+            questions.splice(i,1)
+            bonnes_reponses.splice(i,1)
+            reponse_A.splice(i,1)
+            reponse_B.splice(i,1)
+            reponse_C.splice(i,1)
+            i=Math.floor(Math.random() * nbr);
         }
-        questions.splice(i,1)
-        bonnes_reponses.splice(i,1)
-        reponse_A.splice(i,1)
-        reponse_B.splice(i,1)
-        reponse_C.splice(i,1)
-    }
+    })
+    button2.addEventListener("click", ()=>{
+        reponse_D=reponse_B[i]
+        if (bonnes_reponses[i]==reponse_B) {
+            // console.log("Bonne réponse ! +1 point")
+            point++
+            document.querySelector('.s2 p').innerText("Bonne réponse ! +1 point")
+            questions.splice(i,1)
+            bonnes_reponses.splice(i,1)
+            reponse_A.splice(i,1)
+            reponse_B.splice(i,1)
+            reponse_C.splice(i,1)
+            i=Math.floor(Math.random() * nbr);
+            document.querySelectorAll('.s2 p')[1].innerHTML("boutton")
+        }
+        else{
+            // console.log("Mauvaise réponse !");
+            document.querySelector('.s2 p').innerText("Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses)
+            questions.splice(i,1)
+            bonnes_reponses.splice(i,1)
+            reponse_A.splice(i,1)
+            reponse_B.splice(i,1)
+            reponse_C.splice(i,1)
+            i=Math.floor(Math.random() * nbr);
+        }
+    })
+    button3.addEventListener("click", ()=>{
+        reponse_D=reponse_C[i]
+        if (bonnes_reponses[i]==reponse_C) {
+            // console.log("Bonne réponse ! +1 point")
+            point++
+            document.querySelector('.s2 p').innerText("Bonne réponse ! +1 point")
+            questions.splice(i,1)
+            bonnes_reponses.splice(i,1)
+            reponse_A.splice(i,1)
+            reponse_B.splice(i,1)
+            reponse_C.splice(i,1)
+            i=Math.floor(Math.random() * nbr);
+        }
+        else{
+            // console.log("Mauvaise réponse !");
+            document.querySelector('.s2 p').innerText("Mauvaise réponse ! la bonne reponse est la réponse :"+bonnes_reponses)
+            questions.splice(i,1)
+            bonnes_reponses.splice(i,1)
+            reponse_A.splice(i,1)
+            reponse_B.splice(i,1)
+            reponse_C.splice(i,1)
+            i=Math.floor(Math.random() * nbr);
+        }
+    })
+    
     if (point<10) {
         console.log("tu as perdu");
         console.log('tu as '+point+' point')
@@ -179,5 +241,5 @@ signButton.addEventListener("click", () => {
         console.log("tu as gagné tu es passer maitre");
         console.log('tu as '+point+' point')
     }
-    
+
 });
