@@ -5,14 +5,13 @@ var reponse_B;
 var reponse_C;
 var bonnes_reponses;
 var point=0;
-var A
-var B
-var C
-i
+var afficheReponse
+var nbr
+var i
 signButton.addEventListener("click", () => {
     let section=document.querySelector('section')
     section.remove()
-    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div><div class="question"><h4 class="titre_special"></h4></div><div class="reponse"></div></section><section id="s2"><div><p></p><p></p></div></section>');
+    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div></section>');
     questions = [
         "Quel est le mode de vie des nains selon la chanson ?",
         "Comment les nains perçoivent-ils les habitants de la surface ?",
@@ -73,13 +72,28 @@ signButton.addEventListener("click", () => {
         "Ils refusent de lui servir à boire",
         "Il tue le patron de la taverne",
     ]
-    document.querySelector('h4').innerText=(questions[i]+" :")
-    let afficheReponse=document.querySelector('.reponse')
-    afficheReponse.innerHTML=("<button id='A'>A) "+reponse_A[i]+"</button><button id='B'>B) "+reponse_B[i]+"</button><button id='C'>C) "+reponse_C[i]+"</button>")
-    A=document.querySelector('#A')
-    B=document.querySelector('#B')
-    C=document.querySelector('#C')
-    button=[A,B,C]
-    console.log(button)
+    nbr=questions.length
+    for (let index = 0; index < nbr; index++) {
+        afficheReponse=document.querySelector('section')
+        let random=Math.floor(Math.random() * nbr);
+        i.push(random)
+        afficheReponse.innerHTML=("<div class='nb1'><h4 class='titre_special Q1'>1 "+questions[i1]+" :</h4></div><div class='reponse'><button class='A1' >A) "+reponse_A[i1]+"</button><button class='B1'>B) "+reponse_B[i1]+"</button><button class='C1'>C) "+reponse_C[i1]+"</button></div>")
+        let A1=afficheReponse.querySelector('.A1')
+        let B1=afficheReponse.querySelector('.B1')
+        let C1=afficheReponse.querySelector('.C1')
+        A1.addEventListener('click', ()=>{
+            reponse_A[i1]=bonnes_reponses[i1]
+            console.log("1");
+        })
+        B1.addEventListener('click', ()=>{
+            reponse_B[i1]=bonnes_reponses[i1]
+            console.log("2")
+        })
+        C1.addEventListener('click', ()=>{
+            reponse_C[i1]=bonnes_reponses[i1]
+            console.log("3");
+        })
+    }
+    
 
 });
