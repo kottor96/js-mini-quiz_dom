@@ -38,3 +38,8 @@ hr{
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.score{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

@@ -10,7 +10,8 @@ var i
 signButton.addEventListener("click", () => {
     let section=document.querySelector('section')
     section.remove()
-    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div></section>');
+    user=prompt("merci de rentrer votre nom :", "idiot")
+    document.querySelector('main').innerHTML=('<section><div><h2 class="titre_question titre">Questionnaire</h2></div><div class="score"><p>nom : '+user+'</p><p id="score">score = '+point+'</p></div></section>');
     questions = [
         "Quel est le mode de vie des nains selon la chanson ?",
         "Comment les nains perçoivent-ils les habitants de la surface ?",
@@ -83,51 +84,57 @@ signButton.addEventListener("click", () => {
             if(reponse_A[i]==bonnes_reponses[i]){
                 point++
                 alert("bonne reponse")
-                document.querySelector('#div'+i).style.display = 'none';
                 if (i!=nbr) {
+                    document.querySelector('#div'+i).style.display = 'none';
                     document.querySelector('#div'+((i+1))).style.display='block';
                 }
+                document.querySelector('#score').innerText=("score = "+point)
             }
             else{
                 alert("mauvaise reponse")
-                document.querySelector('#div'+i).style.display = 'none';
                 if (i!=nbr) {
+                    document.querySelector('#div'+i).style.display = 'none';
                     document.querySelector('#div'+((i+1))).style.display='block';
                 }
+                document.querySelector('#score').innerText=("score = "+point)
             }
         })
         B.addEventListener('click', ()=>{
             if(reponse_B[i]==bonnes_reponses[i]){
                 point++
                 alert("bonne reponse")
-                document.querySelector('#div'+i).style.display = 'none';
                 if (i!=nbr) {
+                    document.querySelector('#div'+i).style.display = 'none';
                     document.querySelector('#div'+((i+1))).style.display='block';
                 }
+                document.querySelector('#score').innerText=("score = "+point)
             }
             else{
                 alert("mauvaise reponse")
-                document.querySelector('#div'+i).style.display = 'none';
                 if (i!=nbr) {
+                    document.querySelector('#div'+i).style.display = 'none';
                     document.querySelector('#div'+((i+1))).style.display='block';
                 }
+                document.querySelector('#score').innerText=("score = "+point)
             }
         })
         C.addEventListener('click', ()=>{
             if(reponse_C[i]==bonnes_reponses[i]){
                 point++
                 alert("bonne reponse")
-                document.querySelector('#div'+i).style.display = 'none';
                 if (i!=nbr) {
+                    document.querySelector('#div'+i).style.display = 'none';
                     document.querySelector('#div'+((i+1))).style.display='block';
                 }
+                document.querySelector('#score').innerText=("score = "+point)
             }
             else{
                 alert("mauvaise reponse")
-                document.querySelector('#div'+i).style.display = 'none';
                 if (i!=nbr) {
+                    document.querySelector('#div'+i).style.display = 'none';
                     document.querySelector('#div'+((i+1))).style.display='block';
                 }
+                document.querySelector('#score').innerText=("score = "+point)
             }
         })
     }
