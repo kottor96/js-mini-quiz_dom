@@ -6,7 +6,6 @@ var reponse_C;
 var bonnes_reponses;
 var point=0;
 var afficheReponse
-var nbr
 var i
 signButton.addEventListener("click", () => {
     let section=document.querySelector('section')
@@ -72,28 +71,68 @@ signButton.addEventListener("click", () => {
         "Ils refusent de lui servir à boire",
         "Il tue le patron de la taverne",
     ]
-    nbr=questions.length
-    for (let index = 0; index < nbr; index++) {
+    const nbr=questions.length
+    for (let i = 0; i < nbr; i++) {
         afficheReponse=document.querySelector('section')
-        let random=Math.floor(Math.random() * nbr);
-        i.push(random)
-        afficheReponse.innerHTML=("<div class='nb1'><h4 class='titre_special Q1'>1 "+questions[i1]+" :</h4></div><div class='reponse'><button class='A1' >A) "+reponse_A[i1]+"</button><button class='B1'>B) "+reponse_B[i1]+"</button><button class='C1'>C) "+reponse_C[i1]+"</button></div>")
-        let A1=afficheReponse.querySelector('.A1')
-        let B1=afficheReponse.querySelector('.B1')
-        let C1=afficheReponse.querySelector('.C1')
-        A1.addEventListener('click', ()=>{
-            reponse_A[i1]=bonnes_reponses[i1]
-            console.log("1");
+        afficheReponse.insertAdjacentHTML("beforeend","<div id='div"+i+"'><div class='div'><h4 class='titre_special'> "+((i+1))+" "+questions[i]+" :</h4></div><div class='reponse'><button class='A' >A) "+reponse_A[i]+"</button><button class='B'>B) "+reponse_B[i]+"</button><button class='C'>C) "+reponse_C[i]+"</button></div></div>")
+        console.log(questions[i]);
+        const A=afficheReponse.querySelectorAll('.A')[i]
+        const B=afficheReponse.querySelectorAll('.B')[i]
+        const C=afficheReponse.querySelectorAll('.C')[i]
+        A.addEventListener('click', ()=>{
+            if(reponse_A[i]==bonnes_reponses[i]){
+                point++
+                alert("bonne reponse")
+                document.querySelector('#div'+i).style.display = 'none';
+                if (i!=nbr) {
+                    document.querySelector('#div'+((i+1))).style.display='block';
+                }
+            }
+            else{
+                alert("mauvaise reponse")
+                document.querySelector('#div'+i).style.display = 'none';
+                if (i!=nbr) {
+                    document.querySelector('#div'+((i+1))).style.display='block';
+                }
+            }
         })
-        B1.addEventListener('click', ()=>{
-            reponse_B[i1]=bonnes_reponses[i1]
-            console.log("2")
+        B.addEventListener('click', ()=>{
+            if(reponse_B[i]==bonnes_reponses[i]){
+                point++
+                alert("bonne reponse")
+                document.querySelector('#div'+i).style.display = 'none';
+                if (i!=nbr) {
+                    document.querySelector('#div'+((i+1))).style.display='block';
+                }
+            }
+            else{
+                alert("mauvaise reponse")
+                document.querySelector('#div'+i).style.display = 'none';
+                if (i!=nbr) {
+                    document.querySelector('#div'+((i+1))).style.display='block';
+                }
+            }
         })
-        C1.addEventListener('click', ()=>{
-            reponse_C[i1]=bonnes_reponses[i1]
-            console.log("3");
+        C.addEventListener('click', ()=>{
+            if(reponse_C[i]==bonnes_reponses[i]){
+                point++
+                alert("bonne reponse")
+                document.querySelector('#div'+i).style.display = 'none';
+                if (i!=nbr) {
+                    document.querySelector('#div'+((i+1))).style.display='block';
+                }
+            }
+            else{
+                alert("mauvaise reponse")
+                document.querySelector('#div'+i).style.display = 'none';
+                if (i!=nbr) {
+                    document.querySelector('#div'+((i+1))).style.display='block';
+                }
+            }
         })
     }
-    
-
+    for (let index = 1; index < nbr; index++) {
+        const cacher=document.querySelector('#div'+index)
+        cacher.style.display= "none"
+    }
 });
